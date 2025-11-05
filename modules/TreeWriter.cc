@@ -496,6 +496,9 @@ void TreeWriter::ProcessParticleFlowCandidates(ExRootTreeBranch *branch, TObjArr
 
     entry->PID = candidate->PID;
     
+    entry->IsPU = candidate->IsPU;
+    entry->IsRecoPU = candidate->IsRecoPU;
+
     entry->Charge = candidate->Charge;
 
     entry->PuppiW = candidate->puppiW;

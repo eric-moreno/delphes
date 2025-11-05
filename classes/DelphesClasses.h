@@ -537,6 +537,9 @@ public:
 
   Int_t Charge; // track charge
 
+  Int_t IsPU; // 0 or 1 for particles from pile-up interactions
+  Int_t IsRecoPU; // 0 or 1 for reconstructed particles from pile-up
+
   Float_t E; // reconstructed energy [GeV]
   Float_t P; // track momentum
   Float_t PT; // track transverse momentum
@@ -610,7 +613,7 @@ public:
 
   TRefArray Particles; // references to generated particles
 
-  ClassDef(ParticleFlowCandidate, 2)
+  ClassDef(ParticleFlowCandidate, 3)
 
 };
 
