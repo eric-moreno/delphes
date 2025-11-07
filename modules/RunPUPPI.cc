@@ -263,8 +263,15 @@ void RunPUPPI::Process()
   }
   // Create PUPPI container
   fPuppi->initialize(puppiInputVector);
-  fPuppi->puppiWeights();
+  std::vector<double>    fWeights = fPuppi->puppiWeights();
   std::vector<PseudoJet> puppiParticles = fPuppi->puppiParticles();
+
+  // Print the first few PUPPI weights
+  //std::cout << "First few PUPPI Weights: ";
+  //for (size_t i = 0; i < 5 && i < fWeights.size(); ++i) { 
+  //  std::cout << fWeights[i] << " ";
+  //}
+  //std::cout << std::endl;
 
   // Loop on final particles
   for(std::vector<PseudoJet>::iterator it = puppiParticles.begin(); it != puppiParticles.end(); it++)
@@ -273,6 +280,7 @@ void RunPUPPI::Process()
     {
       candidate = static_cast<Candidate *>(InputParticles.at(it->user_index())->Clone());
       candidate->Momentum.SetPxPyPzE(it->px(), it->py(), it->pz(), it->e());
+      candidate->puppiW = fWeights.at(it->user_index());
       fOutputArray->Add(candidate);
       if(puppiInputVector.at(it->user_index()).id == 1 or puppiInputVector.at(it->user_index()).id == 2)
         fOutputTrackArray->Add(candidate);

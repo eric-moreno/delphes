@@ -260,6 +260,7 @@ Candidate::Candidate() :
   ExclYmerge34(0),
   ExclYmerge45(0),
   ExclYmerge56(0),
+  puppiW(1),
   ParticleDensity(0),
   fFactory(0),
   fArray(0)
@@ -476,6 +477,7 @@ void Candidate::Copy(TObject &obj) const
   object.ExclYmerge34 = ExclYmerge34;
   object.ExclYmerge45 = ExclYmerge45;
   object.ExclYmerge56 = ExclYmerge56;
+  object.puppiW = puppiW;
 
   object.SoftDroppedJet = SoftDroppedJet;
   object.SoftDroppedSubJet1 = SoftDroppedSubJet1;
@@ -611,6 +613,7 @@ void Candidate::Clear(Option_t * /*option*/)
   ExclYmerge34 = 0.0;
   ExclYmerge45 = 0.0;
   ExclYmerge56 = 0.0;
+  puppiW = 1;
   ParticleDensity = 0.0;
 
 

@@ -525,6 +525,9 @@ void TreeWriter::ProcessParticleFlowCandidates(ExRootTreeBranch *branch, TObjArr
     entry->SetUniqueID(candidate->GetUniqueID());
 
     entry->PID = candidate->PID;
+    
+    entry->IsPU = candidate->IsPU;
+    entry->IsRecoPU = candidate->IsRecoPU;
 
     entry->IsPU = candidate->IsPU;
     entry->IsRecoPU = candidate->IsRecoPU;
@@ -539,6 +542,7 @@ void TreeWriter::ProcessParticleFlowCandidates(ExRootTreeBranch *branch, TObjArr
     {
       entry->HardEnergyFraction = candidate->BetaStar;
     }
+    entry->PuppiW = candidate->puppiW;
 
     entry->EtaOuter = eta;
     entry->PhiOuter = position.Phi();
